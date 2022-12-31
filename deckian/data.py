@@ -263,3 +263,10 @@ keyboard=onboard
 #reader=
 #position=
 #screensaver-timeout="""
+
+audiofix = """#!/bin/sh
+export PATH=$PATH:/sbin
+dkms add spi-amd/6.2
+dkms build spi-amd/6.2
+dkms install spi-amd/6.2
+reboot"""

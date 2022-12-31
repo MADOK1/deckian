@@ -19,9 +19,13 @@ def write_file(filename, data):
 	f.write(data)
 	f.close()
 
-def bootstrap(release="bookworm", mirror="http://deb.debian.org/debian"):
+def bootstrap(release="bookworm", mirror="http://deb.debian.org/debian", install_audio_driver=True):
 	if os.path.isdir("data/staging"):
 		error("Staging directory already exists! Please push your staging rootfs into the rootfs list or delete it first!")
+		return
+		
+	if not os.path.isfile("spi-amd_6.2.tar.gz"):
+		error("Cannot find spi-amd_6.2.tar.gz. If you do not want to install the audio driver, use the --skip-audio option.")
 		return
 		
 	os.environ["DEBIAN_FRONTEND"] = "noninteractive"
@@ -71,6 +75,13 @@ def bootstrap(release="bookworm", mirror="http://deb.debian.org/debian"):
 	os.environ["PACKAGES"] = " ".join([xorg_packages, driver_packages, wireless_packages])
 	
 	c.run("apt-get install ${PACKAGES} -y")
+	
+	if install_audio_driver:
+		log("Installing audio driver...")
+		os.system("cd data/staging; tar -xf ../../spi-amd_6.2.tar.gz; cd ../..")
+		c.run("apt-get install dkms linux-headers-amd64 alsa-utils alsa-tools alsa-ucm-conf -y")
+		write_file("data/staging/bin/audiofix", audiofix)
+		c.run("chmod +x /bin/audiofix")
 	
 	log("Installing browsers...")
 	

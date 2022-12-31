@@ -4,7 +4,7 @@ Dual-booting Debian on a Steam Deck, ***easily***.
 
 ## Known issues
 
-- The built-in speaker and headphones do not work, only HDMI audio currently works
+- The built-in speaker does not work
 - GNOME (and even gdm) crashes
 - XFCE doesn't have a way to disable wireless (as a solution for this problem, I've added rfkill to the list of packages installed by `deckian bootstrap`)
 
@@ -14,7 +14,8 @@ Feature | Works? | Notes
 |:--|:--|:--
 | Display | Yes | Display rotation is broken, but `deckian install-desktop` handles that automatically.
 | Wireless | Yes | On XFCE, you can't turn off wireless. However, you can turn it off with `rfkill`.
-| Audio | No | Only HDMI audio currently works.
+| Audio | Partially | HDMI audio works automatically. You will need to run `audiofix` before headphone audio works, and the built-in speaker currently does not work at all.
+| Controller | No | The Steam Deck controller simulates a keyboard and mouse by default. Disabling that and using it as an actual controller does not work yet.
 
 ## Desktop environments
 

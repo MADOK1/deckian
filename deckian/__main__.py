@@ -18,6 +18,7 @@ def usage():
 	deckian show - Shows all chroot tarballs in the chroot list.\nOptions:
 	deckian bootstrap:
 		--mirror=http://example.com/debian - Sets the debian mirror URL.
+		--skip-audio - Skip installation of the audio driver. This is usually not what you want.
 	deckian push:
 		--keep - Skips deletion of the staging rootfs.
 	deckian pull:
@@ -67,7 +68,15 @@ def main():
 	
 	if command_name == "bootstrap":
 		if "mirror" in options.keys():
+			if "skip-audio" in options.keys():
+				bootstrap(mirror=options["mirror"], install_audio_driver=False)
+				return
+			
 			bootstrap(mirror=options["mirror"])
+			return
+		
+		if "skip-audio" in options.keys():
+			bootstrap(install_audio_driver=False)
 			return
 		
 		bootstrap()
