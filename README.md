@@ -6,8 +6,9 @@ Dual-booting Debian on a Steam Deck, ***easily***.
 
 ## Why?
 
-When I got my Steam Deck, I initially wasn't able to use SteamOS. (TL;DR Networking issues)
-I tried to install Debian stable on it with the official installer, but it didn't work.
+When I got my Steam Deck, I tried to dual-boot Debian stable on it with the official installer.
+
+However, the installer was stretched (and in the incorrect rotation!) and it didn't look like it was going to work.
 
 I eventually tried installing Ubuntu on it, and most things were working correctly - But there was no sound, and I couldn't use the controller as an actual controller.
 
