@@ -15,12 +15,6 @@ I eventually tried installing Ubuntu on it, and most things were working correct
 
 At that point, I decided to just make a script that can install Debian to an SD Card and automatically fix all of the driver issues I had with it.
 
-## Known issues
-
-- The built-in speaker does not work
-- GNOME (and even gdm) crashes
-- XFCE doesn't have a way to disable wireless (as a solution for this problem, I've added rfkill to the list of packages installed by `deckian bootstrap`)
-
 ## Installation
 
 After cloning this repository, run the following to install deckian to `/dev/sda` with the username `user` (change it to the correct values for your use case first!):
@@ -34,6 +28,12 @@ sudo python3 -m deckian install deckian-plasma /dev/sda --username=user
 ## Credits
 
 @iam_tj:matrix.org: Converted the spi-amd kernel module into a dkms module
+
+## Known issues
+
+- The built-in speaker does not work
+- GNOME (and even gdm) crashes
+- XFCE doesn't have a way to disable wireless (as a solution for this problem, I've added rfkill to the list of packages installed by `deckian bootstrap`)
 
 ## Features
 
