@@ -1,5 +1,5 @@
 # deckian
-[![Matrix](https://img.shields.io/matrix/deckian:matrix.org)](https://matrix.to/#/#deckian:matrix.org)
+[![Matrix](https://img.shields.io/matrix/deckian:matrix.org)](https://matrix.to/#/#deckian:matrix.org)  
 Dual-booting Debian on a Steam Deck, ***easily***.
 
 ![deckian + KDE Plasma](screenshots/deckian-plasma.png)
