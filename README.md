@@ -2,11 +2,36 @@
 
 Dual-booting Debian on a Steam Deck, ***easily***.
 
+![deckian + KDE Plasma](screenshots/deckian-plasma.png)
+
+## Why?
+
+When I got my Steam Deck, I initially wasn't able to use SteamOS. (TL;DR Networking issues)
+I tried to install Debian stable on it with the official installer, but it didn't work.
+
+I eventually tried installing Ubuntu on it, and most things were working correctly - But there was no sound, and I couldn't use the controller as an actual controller.
+
+At that point, I decided to just make a script that can install Debian to an SD Card and automatically fix all of the driver issues I had with it.
+
 ## Known issues
 
 - The built-in speaker does not work
 - GNOME (and even gdm) crashes
 - XFCE doesn't have a way to disable wireless (as a solution for this problem, I've added rfkill to the list of packages installed by `deckian bootstrap`)
+
+## Installation
+
+After cloning this repository, run the following to install deckian to `/dev/sda` with the username `user` (change it to the correct values for your use case first!):
+```
+sudo python3 -m deckian bootstrap
+sudo python3 -m deckian install-desktop plasma
+sudo python3 -m deckian push deckian-plasma
+sudo python3 -m deckian install deckian-plasma /dev/sda --username=user
+```
+
+## Credits
+
+@iam_tj:matrix.org: Converted the spi-amd kernel module into a dkms module
 
 ## Features
 
@@ -24,19 +49,3 @@ Desktop Environment | Works? | Notes
 | KDE Plasma | Yes | KDE Plasma currently is the best DE choice for deckian, everything works really well.
 | XFCE | Yes | Wireless cannot be disabled with the GUI, but everything else works.
 | GNOME | No | GNOME crashes when it tries to load gdm.
-
-## Installation
-
-After cloning this repository, run the following to install deckian to `/dev/sda` with the username `user` (change it to the correct values for your use case first!):
-```
-sudo python3 -m deckian bootstrap
-sudo python3 -m deckian install-desktop plasma
-sudo python3 -m deckian push deckian-plasma
-sudo python3 -m deckian install deckian-plasma /dev/sda --username=user
-```
-
-## Screenshots
-
-### deckian + KDE Plasma
-
-![deckian + KDE Plasma](screenshots/deckian-plasma.png)
