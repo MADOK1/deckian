@@ -1,6 +1,5 @@
 # deckian
 [![Matrix](https://img.shields.io/matrix/deckian:matrix.org)](https://matrix.to/#/#deckian:matrix.org)  
-<br>
 
 Dual-booting Debian on a Steam Deck, ***easily***.
 
