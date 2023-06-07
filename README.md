@@ -17,8 +17,14 @@ At that point, I decided to just make a script that can install Debian to an SD 
 
 ## Installation
 
-After cloning this repository, run the following to install deckian to `/dev/sda` with the username `user` (change it to the correct values for your use case first!):
+run the following to install deckian to `/dev/sda` with the username `user` (change it to the correct values for your use case first!):
 ```
+sudo steamos-readonly disable
+sudo pacman-key --init
+sudo pacman-key --populate archlinux
+sudo pacman -S debootstrap python3
+git clone https://github.com/deckian/deckian
+cd ~/deckian
 sudo python3 -m deckian bootstrap
 sudo python3 -m deckian install-desktop plasma
 sudo python3 -m deckian push deckian-plasma
