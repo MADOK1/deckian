@@ -23,6 +23,7 @@ sudo steamos-readonly disable
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
 sudo pacman -S debootstrap python3
+cd ~
 git clone https://github.com/deckian/deckian
 cd ~/deckian
 sudo python3 -m deckian bootstrap
